@@ -10,7 +10,7 @@
   sudo: yes
   tasks:
     - name: Start nginx
-      service: name=nginx state=started
+      service: name=nginx state=restarted
 
 - hosts: [web]
   remote_user: ubuntu
@@ -27,3 +27,10 @@
         chdir=/home/ubuntu/reboop/reboop
       environment:
         MIX_ENV: dev
+
+- hosts: [web]
+  remote_user: ubuntu
+  sudo: yes
+  tasks:
+    - name: Start server
+      template: src=templates/upstart.conf.j2 dest=/etc/init/{{server_name}}.conf

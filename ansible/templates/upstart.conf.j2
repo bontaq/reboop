@@ -1,0 +1,23 @@
+description "Launches {{dns_full_name}} site using Phoenix Framework"
+author "Janne Kaistinen"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+setuid {{server_user}}
+setgid {{server_user}}
+
+console log
+
+respawn
+
+chdir {{deployment_dir}}
+
+env HOME={{home_dir}}
+env MIX_ENV=dev
+env PORT=8080
+env LANG=en_US.UTF-8
+
+post-start exec echo "{{server_name}} was (re)started on $(date)"
+
+exec elixir --name {{server_name}}@{{dns_base_name}} -S mix phoenix.server

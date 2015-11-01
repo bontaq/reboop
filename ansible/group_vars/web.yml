@@ -1,0 +1,6 @@
+server_name: reboop
+server_user: ubuntu
+dns_base_name: reboop.com
+dns_full_name: www.reboop.com
+home_dir: /home/ubuntu
+deployment_dir: /home/ubuntu/reboop/reboop
