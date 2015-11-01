@@ -32,5 +32,7 @@
   remote_user: ubuntu
   sudo: yes
   tasks:
-    - name: Start server
+    - name: Configure phoenix service
       template: src=templates/upstart.conf.j2 dest=/etc/init/{{server_name}}.conf
+    - name: Configure nginx
+      template: src=templates/nginx.conf.j2 dest=/etc/nginx/sites-available/{{server_name}}
