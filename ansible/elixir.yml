@@ -1,0 +1,18 @@
+- hosts: [web]
+  sudo: yes
+  remote_user: ubuntu
+  tasks:
+    - name: Add erlang solutions key
+      apt_key:
+        url="http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc"
+        state=present
+    - name: Add elixir repo
+      apt_repository:
+        repo="deb http://packages.erlang-solutions.com/ubuntu trusty contrib"
+        state=present
+        update_cache=yes
+    - name: Install elixir
+      apt:
+        pkg=elixir
+        state=installed
+        update_cache=yes

@@ -1,0 +1,6 @@
+- hosts: [web]
+  sudo: yes
+  remote_user: ubuntu
+  tasks:
+    - name: Install nginx
+      apt: pkg=nginx state=installed update_cache=true
