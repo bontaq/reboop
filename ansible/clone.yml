@@ -1,0 +1,9 @@
+- hosts: [web]
+  remote_user: ubuntu
+  tasks:
+    - name: Clone repo
+      git:
+        repo=https://github.com/bontaq/reboop.git
+        update=yes
+        dest=/home/ubuntu/reboop
+        accept_hostkey=yes

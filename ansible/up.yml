@@ -1,0 +1,4 @@
+- include: nginx.yml
+- include: elixir.yml
+- include: git.yml
+- include: clone.yml

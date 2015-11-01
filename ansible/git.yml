@@ -1,0 +1,6 @@
+- hosts: [web]
+  sudo: yes
+  remote_user: ubuntu
+  tasks:
+    - name: Install git
+      apt: pkg=git state=installed update_cache=true
