@@ -3,3 +3,11 @@
 - include: git.yml
 - include: postgres.yml
 - include: clone.yml
+
+
+- hosts: [web]
+  remote_user: ubuntu
+  sudo: yes
+  tasks:
+    - name: Start nginx
+      service: name=nginx state=started
